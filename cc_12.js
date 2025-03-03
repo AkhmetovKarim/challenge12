@@ -18,6 +18,21 @@
         const metricCards = document.querySelectorAll(`.metric-card`);
         const metricCardsArray = [...metricCards];
         metricCardsArray.forEach(card => {
-            card.innerHTML = card.innerHtml + "-Updated";
-            card.computedStyleMap.backgroundColor = `#f2f2f2`;
+            card.innerHTML = card.innerHTML + "-Updated";
+            card.style.backgroundColor = `#f2f2f2`;
         });
+
+    //Task 3 - Dynamic Inventory Management
+    const inventoryList = document.getElementById(`inventoryList`);
+    function addInventoryItem(itemName) {
+        const productItem = document.createElement(`li`);
+        productItem.setAttribute(`class`, `product-item`);
+        productItem.setAttribute(`data-id`, Date.now());
+        productItem.textContent = itemName;
+        productItem.addEventListener(`click`, () => removeProduct(productItem));
+        inventoryList.appendChild(productItem);
+    }
+    function removeProduct(item) {
+        inventoryList.removeChild(item);
+    }
+    
