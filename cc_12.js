@@ -36,3 +36,15 @@
         inventoryList.removeChild(item);
     }
     
+//Task 4 - Business Vustomer Section
+const customerSection = document.getElementById(`customerSection`);
+customerSection.addEventListener(`click`, () => {
+    console.log("Customer clicked");
+});
+const customerCards = document.querySelectorAll(`.customer-card`);
+customerCards.forEach(card => {
+    card.addEventListener(`click`, (e) => {
+        console.log("customer card clidk");
+        e.stopPropagation();
+    });
+});
